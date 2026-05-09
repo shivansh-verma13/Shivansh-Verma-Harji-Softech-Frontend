@@ -1,0 +1,1416 @@
+:root {
+  --bg: #f7faf9;
+  --surface: #ffffff;
+  --surface-soft: #f1fbf7;
+  --line: #e9efed;
+  --line-strong: #c8dbd7;
+  --ink: #142421;
+  --muted: #6f7d7a;
+  --teal: #13aaa5;
+  --teal-dark: #0b8f8a;
+  --mint: #dff8ea;
+  --green: #20ba72;
+  --yellow: #f4c446;
+  --pink: #e9429d;
+  --violet: #7967dc;
+  --blue: #5aa6f2;
+  --shadow: 0 18px 45px rgba(21, 53, 47, 0.08);
+  --radius: 8px;
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  background: var(--bg);
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 74% 16%, rgba(211, 247, 218, 0.55), transparent 24rem),
+    linear-gradient(180deg, #ffffff 0%, var(--bg) 58%);
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.58;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.appShell {
+  display: grid;
+  grid-template-columns: 232px minmax(0, 1fr);
+  min-height: 100vh;
+}
+
+.sidebar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  height: 100vh;
+  padding: 24px 16px;
+  background: rgba(255, 255, 255, 0.92);
+  border-right: 1px solid var(--line);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 34px;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.brandMark {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: conic-gradient(from 30deg, #4f8af5, #24c789, #ffd34e, #ff6aa7, #4f8af5);
+}
+
+.brandMark span {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.navGroup {
+  display: grid;
+  gap: 7px;
+}
+
+.navGroup.lower {
+  margin-top: 8px;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  min-height: 38px;
+  padding: 0 11px;
+  color: #596966;
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.navItem.active {
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+  box-shadow: 0 12px 20px rgba(19, 170, 165, 0.18);
+}
+
+.navItem:not(.active):hover {
+  background: #eff8f6;
+  color: var(--ink);
+}
+
+.userCard {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr) 20px;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #fbfdfc;
+}
+
+.userCard strong,
+.userCard span {
+  display: block;
+}
+
+.userCard strong {
+  font-size: 13px;
+}
+
+.userCard span {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.avatar,
+.avatarLarge {
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-weight: 800;
+}
+
+.avatar {
+  width: 34px;
+  height: 34px;
+  color: #17392f;
+  background: #dbf6be;
+}
+
+.avatarLarge {
+  position: relative;
+  z-index: 1;
+  width: 54px;
+  height: 54px;
+  color: #fff;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.22), transparent),
+    linear-gradient(135deg, #2dbc74, #09877c);
+  box-shadow: 0 12px 24px rgba(14, 132, 120, 0.2);
+}
+
+.contentShell {
+  min-width: 0;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 72px;
+  padding: 18px 28px;
+  background: rgba(255, 255, 255, 0.78);
+  border-bottom: 1px solid rgba(233, 239, 237, 0.78);
+  backdrop-filter: blur(18px);
+}
+
+.searchBox {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  width: min(470px, 100%);
+  height: 40px;
+  padding: 0 13px;
+  color: #7d8a87;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+}
+
+.searchBox input {
+  width: 100%;
+  min-width: 0;
+  color: var(--ink);
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font-size: 13px;
+}
+
+.topActions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.iconButton,
+.darkButton,
+.textButton,
+.sendButton,
+.pinkButton,
+.greenButton,
+.outlineButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 38px;
+  border-radius: 7px;
+  border: 0;
+  font-weight: 750;
+}
+
+.iconButton {
+  width: 38px;
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid var(--line);
+}
+
+.iconButton.teal {
+  color: #fff;
+  background: var(--teal);
+  border-color: transparent;
+}
+
+.darkButton {
+  padding: 0 15px;
+  color: #fff;
+  background: #111815;
+  box-shadow: 0 10px 20px rgba(17, 24, 21, 0.12);
+}
+
+.textButton {
+  min-height: auto;
+  padding: 0;
+  color: var(--teal-dark);
+  background: transparent;
+  font-size: 12px;
+}
+
+.sendButton {
+  width: 34px;
+  min-height: 34px;
+  color: #fff;
+  background: linear-gradient(135deg, #fb58a6, #f88c37);
+}
+
+.pinkButton,
+.greenButton,
+.outlineButton {
+  width: 100%;
+  padding: 0 14px;
+  font-size: 13px;
+}
+
+.pinkButton {
+  color: #fff;
+  background: var(--pink);
+}
+
+.greenButton {
+  color: #fff;
+  background: linear-gradient(135deg, #1ccf81, #0aa57f);
+}
+
+.outlineButton {
+  color: var(--teal-dark);
+  background: #fff;
+  border: 1px solid var(--line-strong);
+}
+
+.pageGrid {
+  display: grid;
+  gap: 28px;
+  padding: 28px;
+}
+
+.dashboardGrid {
+  grid-template-columns: minmax(0, 1fr) 262px;
+}
+
+.sessionsGrid {
+  grid-template-columns: 46px minmax(0, 1fr) 276px;
+}
+
+.mainColumn,
+.rightRail {
+  display: grid;
+  align-content: start;
+  gap: 22px;
+  min-width: 0;
+}
+
+.heroHeader {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.heroHeader h1 {
+  margin: 3px 0 0;
+  color: #0b9d9a;
+  font-size: clamp(26px, 3vw, 34px);
+  line-height: 1.05;
+  letter-spacing: 0;
+}
+
+.sessionsHeader h1 {
+  color: var(--ink);
+}
+
+.eyebrow {
+  margin: 0;
+  color: #7f8d89;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.softBanner {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  max-width: 520px;
+  min-height: 46px;
+  padding: 0 14px;
+  color: #256452;
+  background: linear-gradient(90deg, rgba(201, 244, 220, 0.9), rgba(239, 255, 232, 0.72));
+  border-left: 4px solid var(--teal);
+  border-radius: 3px;
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.sectionTitle h2,
+.card h2 {
+  margin: 3px 0 0;
+  font-size: 17px;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+.sectionTitle.compact h2 {
+  font-size: 15px;
+}
+
+.aiPanel,
+.focusCard,
+.roadmap,
+.lessonBuilder {
+  padding: 22px;
+}
+
+.aiCanvas {
+  display: grid;
+  gap: 18px;
+  min-height: 300px;
+  margin-top: 18px;
+  padding: 28px;
+  border: 1px solid #eef3f1;
+  border-radius: 7px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.76), rgba(255, 255, 255, 0.95)),
+    repeating-linear-gradient(0deg, transparent 0 38px, rgba(13, 150, 142, 0.05) 38px 39px),
+    repeating-linear-gradient(90deg, transparent 0 38px, rgba(13, 150, 142, 0.04) 38px 39px);
+}
+
+.aiGreeting {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 12px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.aiGreeting p {
+  max-width: 430px;
+  margin: 0;
+  font-size: 13px;
+}
+
+.sparkleDot {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  color: #fff;
+  background: linear-gradient(135deg, #f57c4c, #d634a2);
+  border-radius: 50%;
+}
+
+.chatMessages {
+  display: grid;
+  align-content: start;
+  justify-items: start;
+  gap: 10px;
+  max-height: 235px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.chatBubble {
+  max-width: min(560px, 92%);
+  padding: 11px 13px;
+  border-radius: 8px;
+  color: #52625f;
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid var(--line);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.chatBubble.user {
+  justify-self: end;
+  color: #fff;
+  background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+  border-color: transparent;
+}
+
+.chatBubble.assistant {
+  background: #fff;
+}
+
+.suggestionChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.suggestionChip {
+  min-height: 32px;
+  padding: 0 10px;
+  color: #315d56;
+  background: #eefaf6;
+  border: 1px solid #cfebe4;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.promptBar {
+  align-self: end;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 34px;
+  align-items: center;
+  gap: 10px;
+  min-height: 54px;
+  padding: 10px 11px 10px 16px;
+  color: #7d8785;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  font-size: 13px;
+}
+
+.promptBar input {
+  width: 100%;
+  min-width: 0;
+  color: var(--ink);
+  border: 0;
+  outline: 0;
+  background: transparent;
+}
+
+.focusCard {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 210px;
+  gap: 20px;
+  align-items: stretch;
+}
+
+.focusCard p {
+  max-width: 610px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.focusStats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.focusStats span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 32px;
+  padding: 0 11px;
+  color: #315d56;
+  background: #eefaf6;
+  border-radius: 7px;
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.buddyCard {
+  position: relative;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 8px;
+  min-height: 160px;
+  overflow: hidden;
+  text-align: center;
+  background: linear-gradient(135deg, #fbfff3, #eef9d8);
+  border-radius: 7px;
+  border: 1px solid #e3efcd;
+}
+
+.buddyCard strong {
+  position: relative;
+  z-index: 1;
+  font-size: 13px;
+}
+
+.buddyCard span {
+  position: relative;
+  z-index: 1;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.floatingLeaf {
+  position: absolute;
+  right: 25px;
+  top: 18px;
+  width: 46px;
+  height: 35px;
+  background: #b9e36d;
+  border-radius: 50% 4px 50% 4px;
+  transform: rotate(-28deg);
+}
+
+.roadmapTrack {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin: 20px 0 16px;
+}
+
+.roadmapTrack span {
+  height: 6px;
+  background: #e5efec;
+  border-radius: 999px;
+}
+
+.roadmapTrack .complete,
+.roadmapTrack .active {
+  background: linear-gradient(90deg, var(--teal), #84dd8e);
+}
+
+.roadmapSteps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.roadmapSteps span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 50px;
+  color: #53635f;
+  background: #fbfdfc;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.metricPill,
+.taskStatus,
+.statusChip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 25px;
+  padding: 0 9px;
+  color: var(--teal-dark);
+  background: #e8fbf7;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.metricPill.positive {
+  color: #249b5d;
+  background: #e7f8ed;
+}
+
+.lowerGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(260px, 0.85fr);
+  gap: 22px;
+}
+
+.lowerGrid > .card,
+.chartCard,
+.taskProgressCard,
+.coachCard,
+.miniProgress,
+.nudges,
+.progressDialCard,
+.recommendation,
+.resourceCard,
+.conceptCard,
+.notesCard,
+.quizCard {
+  padding: 20px;
+}
+
+.taskList {
+  display: grid;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.taskRow {
+  display: grid;
+  grid-template-columns: 16px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 10px 11px;
+  background: #fbfdfd;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+}
+
+.taskRow.interactive {
+  cursor: pointer;
+  transition:
+    border-color 160ms ease,
+    background 160ms ease,
+    transform 160ms ease;
+}
+
+.taskRow.interactive:hover {
+  border-color: #c6e6df;
+  background: #f8fffd;
+  transform: translateY(-1px);
+}
+
+.taskRow input {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.taskRow.done strong {
+  color: #6b7774;
+  text-decoration: line-through;
+}
+
+.taskRow strong,
+.lessonRow strong,
+.conceptRow strong {
+  display: block;
+  font-size: 13px;
+}
+
+.taskRow small,
+.lessonRow small,
+.conceptRow small {
+  display: block;
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.taskDot {
+  display: grid;
+  place-items: center;
+  width: 11px;
+  height: 11px;
+  color: #fff;
+  border-radius: 3px;
+}
+
+.taskRow.interactive .taskDot {
+  width: 18px;
+  height: 18px;
+}
+
+.taskDot.mint {
+  background: var(--teal);
+}
+
+.taskDot.blue {
+  background: var(--blue);
+}
+
+.taskDot.lime {
+  background: #96d95a;
+}
+
+.taskDot.pink {
+  background: var(--pink);
+}
+
+.taskDot.amber {
+  background: var(--yellow);
+}
+
+.barChart {
+  display: flex;
+  align-items: end;
+  gap: 12px;
+  height: 168px;
+  margin-top: 20px;
+  padding: 14px 8px 0;
+}
+
+.barChart span {
+  flex: 1;
+  height: var(--bar);
+  min-width: 18px;
+  border-radius: 7px 7px 2px 2px;
+  background: linear-gradient(180deg, #ff6886, #11bfb5);
+}
+
+.barChart span:nth-child(1) {
+  background: linear-gradient(180deg, #8b6be8, #ca8cff);
+}
+
+.barChart span:nth-child(2) {
+  background: linear-gradient(180deg, #6fd86a, #25c483);
+}
+
+.barChart span:nth-child(3) {
+  background: linear-gradient(180deg, #ffd85b, #f6a63a);
+}
+
+.barChart span:nth-child(4) {
+  background: linear-gradient(180deg, #ff64b8, #ef4c88);
+}
+
+.barChart span:nth-child(5) {
+  background: linear-gradient(180deg, #23c6d6, #08a89f);
+}
+
+.barChart span:nth-child(6) {
+  background: linear-gradient(180deg, #ff6f71, #ee5359);
+}
+
+.miniNote {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.progressSummary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.progressCopy {
+  display: grid;
+  gap: 5px;
+}
+
+.progressCopy strong {
+  font-size: 18px;
+}
+
+.progressCopy span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.dynamicProgressBar {
+  height: 9px;
+  margin-top: 16px;
+  overflow: hidden;
+  background: #edf3f1;
+  border-radius: 999px;
+}
+
+.dynamicProgressBar span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--teal), #76d98d);
+  transition: width 220ms ease;
+}
+
+.journeyRing {
+  --progress: 0%;
+  display: grid;
+  place-items: center;
+  width: 116px;
+  height: 116px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, #fff 0 57%, transparent 58%),
+    conic-gradient(var(--teal) 0 var(--progress), #edf3f1 var(--progress) 100%);
+}
+
+.journeyRing.small {
+  width: 82px;
+  height: 82px;
+}
+
+.journeyRing span {
+  display: grid;
+  place-items: center;
+  width: 78px;
+  height: 78px;
+  border-radius: 50%;
+  color: var(--teal-dark);
+  background: #fff;
+  font-size: 21px;
+  font-weight: 900;
+}
+
+.journeyRing.small span {
+  width: 55px;
+  height: 55px;
+  font-size: 16px;
+}
+
+.sprintGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.sprintCard {
+  position: relative;
+  display: grid;
+  gap: 9px;
+  min-height: 126px;
+  padding: 16px;
+  overflow: hidden;
+  border-radius: 7px;
+  border: 1px solid rgba(255, 255, 255, 0.52);
+}
+
+.sprintCard strong,
+.sprintCard span {
+  display: block;
+}
+
+.sprintCard strong {
+  font-size: 13px;
+}
+
+.sprintCard span {
+  color: #576663;
+  font-size: 12px;
+}
+
+.sprintCard > svg:last-child {
+  position: absolute;
+  right: 13px;
+  bottom: 13px;
+}
+
+.sprintCard.cyan {
+  background: #dff8ff;
+}
+
+.sprintCard.yellow {
+  background: #fff4b9;
+}
+
+.sprintCard.violet {
+  background: #e9e2ff;
+}
+
+.sprintCard.rose {
+  background: #ffe0f0;
+}
+
+.coachCard,
+.progressDialCard,
+.recommendation {
+  text-align: center;
+}
+
+.coachCard p,
+.recommendation p,
+.nudges p,
+.lessonBuilder p,
+.notesCard p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.mentorAvatar {
+  width: 66px;
+  height: 66px;
+  margin: 16px auto 10px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 55% 42%, #ffe1ca 0 14px, transparent 15px),
+    radial-gradient(circle at 45% 38%, #241711 0 20px, transparent 21px),
+    linear-gradient(135deg, #d81e53, #f5a136);
+  border: 4px solid #fff;
+  box-shadow: 0 10px 24px rgba(30, 20, 10, 0.14);
+}
+
+.mentorAvatar.red {
+  background:
+    radial-gradient(circle at 55% 42%, #ffe0c8 0 14px, transparent 15px),
+    radial-gradient(circle at 45% 38%, #3d160f 0 20px, transparent 21px),
+    linear-gradient(135deg, #bd113b, #e36129);
+}
+
+.progressRows {
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+  text-align: left;
+}
+
+.progressRows span {
+  display: flex;
+  justify-content: space-between;
+  color: #52625f;
+  font-size: 12px;
+  font-weight: 750;
+}
+
+progress {
+  width: 100%;
+  height: 8px;
+  overflow: hidden;
+  appearance: none;
+  border: 0;
+  border-radius: 999px;
+  background: #edf3f1;
+}
+
+progress::-webkit-progress-bar {
+  background: #edf3f1;
+}
+
+progress::-webkit-progress-value {
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--teal), #79d58f);
+}
+
+progress::-moz-progress-bar {
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--teal), #79d58f);
+}
+
+.nudges {
+  background: linear-gradient(180deg, #ffffff, #fff5fb);
+}
+
+.sessionsGrid .mainColumn {
+  gap: 20px;
+}
+
+.timelineRail {
+  position: sticky;
+  top: 100px;
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  padding-top: 74px;
+}
+
+.timelineRail > span:not(.timelineDot) {
+  width: 2px;
+  height: 150px;
+  background: #c9dfdb;
+}
+
+.timelineDot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #e5efec;
+  border: 4px solid #fff;
+  box-shadow: 0 0 0 1px #c9dfdb;
+}
+
+.timelineDot.active {
+  background: var(--teal);
+  box-shadow: 0 0 0 5px rgba(19, 170, 165, 0.16);
+}
+
+.lessonBuilder {
+  border: 2px solid rgba(13, 150, 142, 0.42);
+}
+
+.builderProgress {
+  height: 9px;
+  margin: 18px 0;
+  overflow: hidden;
+  background: #e9efed;
+  border-radius: 999px;
+}
+
+.builderProgress span {
+  display: block;
+  width: 63%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--teal), #66d57e);
+}
+
+.builderProgress.dynamic span {
+  transition: width 220ms ease;
+}
+
+.sessionProgressPanel {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 18px;
+  padding: 14px;
+  background: #fbfdfc;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+}
+
+.lessonStack {
+  display: grid;
+  gap: 11px;
+}
+
+.lessonRow {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 11px;
+  min-height: 62px;
+  padding: 11px;
+  background: #fbfdfd;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+}
+
+.lessonIndex {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  color: #63726f;
+  background: #eff6f4;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.lessonIndex.active,
+.lessonIndex.done,
+.statusChip.active {
+  color: #fff;
+  background: var(--teal);
+}
+
+.lessonIndex.done {
+  background: var(--green);
+}
+
+.lessonRow.flow {
+  transition:
+    border-color 160ms ease,
+    background 160ms ease;
+}
+
+.lessonRow.flow.locked {
+  color: #91a09d;
+  background: #f7faf9;
+}
+
+.statusButton {
+  min-height: 34px;
+  padding: 0 12px;
+  color: #fff;
+  background: var(--teal);
+  border: 0;
+  border-radius: 7px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.statusButton.completed {
+  background: var(--green);
+}
+
+.sessionsList {
+  display: grid;
+  gap: 18px;
+}
+
+.conceptCard {
+  display: grid;
+  gap: 12px;
+}
+
+.conceptRow {
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr) 18px;
+  align-items: center;
+  gap: 11px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+}
+
+.conceptRow > span {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  color: var(--teal-dark);
+  background: #eafaf7;
+  border-radius: 50%;
+}
+
+.quizCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.quizCard > div {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  gap: 4px 10px;
+  align-items: center;
+}
+
+.quizCard svg {
+  grid-row: span 2;
+  color: var(--teal);
+}
+
+.quizCard strong,
+.quizCard span {
+  display: block;
+}
+
+.quizCard strong {
+  font-size: 14px;
+}
+
+.quizCard span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.quizCard .outlineButton {
+  width: auto;
+}
+
+.progressDial {
+  display: grid;
+  place-items: center;
+  width: 110px;
+  height: 110px;
+  margin: 18px auto 14px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, #fff 0 57%, transparent 58%),
+    conic-gradient(var(--yellow) 0 86%, #edf3f1 86% 100%);
+}
+
+.progressDial span {
+  display: grid;
+  place-items: center;
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  color: #c08700;
+  background: #fff;
+  font-size: 24px;
+  font-weight: 900;
+}
+
+.dialStats {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.dialStats b {
+  display: block;
+  color: var(--ink);
+  font-size: 17px;
+}
+
+.recommendation strong {
+  display: block;
+  margin-top: 8px;
+  font-size: 15px;
+}
+
+.resourceList {
+  display: grid;
+  gap: 12px;
+  margin-top: 16px;
+  text-align: left;
+}
+
+.resourceList span {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 40px;
+  padding: 9px 10px;
+  color: #53625f;
+  background: #fbfdfc;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+@media (max-width: 1180px) {
+  .dashboardGrid,
+  .sessionsGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .sessionsGrid .timelineRail {
+    display: none;
+  }
+
+  .rightRail {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .appShell {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: static;
+    height: auto;
+    padding: 16px;
+  }
+
+  .navGroup {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .navGroup.lower {
+    display: none;
+  }
+
+  .userCard {
+    display: none;
+  }
+
+  .topbar {
+    position: static;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 16px;
+  }
+
+  .topActions {
+    justify-content: flex-end;
+  }
+
+  .pageGrid {
+    padding: 18px;
+  }
+
+  .focusCard,
+  .lowerGrid,
+  .roadmapSteps,
+  .sprintGrid,
+  .rightRail {
+    grid-template-columns: 1fr;
+  }
+
+  .softBanner {
+    max-width: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .brand {
+    justify-content: center;
+  }
+
+  .navGroup {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .navItem {
+    justify-content: center;
+    min-height: 44px;
+  }
+
+  .heroHeader,
+  .sectionTitle,
+  .quizCard {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .aiPanel,
+  .focusCard,
+  .roadmap,
+  .lessonBuilder,
+  .lowerGrid > .card,
+  .chartCard,
+  .taskProgressCard,
+  .coachCard,
+  .miniProgress,
+  .nudges,
+  .progressDialCard,
+  .recommendation,
+  .resourceCard,
+  .conceptCard,
+  .notesCard,
+  .quizCard {
+    padding: 16px;
+  }
+
+  .aiCanvas {
+    min-height: 210px;
+    padding: 18px;
+  }
+
+  .taskRow,
+  .lessonRow {
+    grid-template-columns: 28px minmax(0, 1fr);
+  }
+
+  .taskStatus,
+  .statusChip,
+  .statusButton {
+    justify-self: start;
+    grid-column: 2;
+  }
+
+  .sessionProgressPanel,
+  .progressSummary {
+    align-items: start;
+    flex-direction: column;
+  }
+}
