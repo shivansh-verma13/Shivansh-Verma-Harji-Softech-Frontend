@@ -32,4 +32,6 @@ The app keeps the Figma-inspired layout in server-rendered Next.js pages, then i
 
 ## Submission
 
-Push this folder to GitHub, then deploy the repository on Vercel or Netlify. For Vercel, import the GitHub repository and keep the default Next.js settings.
+Live deployed URL: https://shivansh-harji-softech.vercel.app/
+
+GitHub repository: add the repository URL here after pushing the code.
