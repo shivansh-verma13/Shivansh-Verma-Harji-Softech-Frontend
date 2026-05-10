@@ -34,4 +34,4 @@ The app keeps the Figma-inspired layout in server-rendered Next.js pages, then i
 
 Live deployed URL: https://shivansh-harji-softech.vercel.app/
 
-GitHub repository: add the repository URL here after pushing the code.
+GitHub repository: https://github.com/shivansh-verma13/Shivansh-Verma-Harji-Softech-Frontend
